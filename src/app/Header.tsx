@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
+import classNames from "classnames";
 
 const Header = () => {
+  const currentPath = usePathname();
   const links = [
     { label: "Recipe Search", href: "/" },
     { label: "View Favorite List", href: "/favorites" },
@@ -15,8 +20,13 @@ const Header = () => {
         {links.map(link => 
           <Link
             key={link.href}
-            className="text-zinc-500 hover:text-green-600 transition-colors" 
-            href={link.href}>{link.label}</Link>
+            className={classNames({
+              "text-green-700": link.href === currentPath,
+              "text-zinc-500": link.href !== currentPath,
+              "hover:text-green-600 transition-colors" : true
+            })}
+            href={link.href}>{link.label}
+          </Link>
           )}
       </ul>
     </nav>
