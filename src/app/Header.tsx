@@ -14,9 +14,9 @@ const Header = () => {
   ]
 
   return (
-    <nav className="flex space-x-6 border-b mb-5 px-5 h-14 items-center">
+    <nav className="flex space-x-11 border-b mb-5 px-5 h-14 items-center">
       <Link href="/">Logo</Link>
-      <ul className="flex space-x-6">
+      <ul className="flex space-x-5">
         {links.map(link => 
           <Link
             key={link.href}
