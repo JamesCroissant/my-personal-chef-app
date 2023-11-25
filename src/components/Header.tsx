@@ -8,14 +8,14 @@ import classNames from "classnames";
 const Header = () => {
   const currentPath = usePathname();
   const links = [
-    { label: "Recipe Search", href: "/" },
-    { label: "View Favorite List", href: "/favorites" },
     { label: "About", href: "/about" },
+    { label: "Recipe Search", href: "/" },
+    { label: "My Favorites", href: "/favorites" },
   ]
 
   return (
     <nav className="flex space-x-11 border-b mb-5 px-5 h-14 items-center">
-      <Link href="/">Logo</Link>
+      <Link href="/">My personal Chef</Link>
       <ul className="flex space-x-5">
         {links.map(link => 
           <Link
