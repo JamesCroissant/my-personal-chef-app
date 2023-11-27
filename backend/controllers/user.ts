@@ -3,7 +3,7 @@ import User, { IUser } from '../models/User';
 
 
 // Add FAVORITE RECIPE TO YOUR OWN LIST
-exports.addFavorite = async (req: Request, res: Response) => {
+export const addFavorite = async (req: Request, res: Response) => {
   try {
     const userId = req.body.id;
     const recipeId = req.body.recipeId;
@@ -23,7 +23,7 @@ exports.addFavorite = async (req: Request, res: Response) => {
 };
 
 // REMOVE FAVORITE RECIPE FROM YOUR OWN LIST
-exports.removeFavorite = async (req: Request, res: Response) => {
+export const removeFavorite = async (req: Request, res: Response) => {
   try {
     const userId = req.body.id;
     const recipeId = req.body.recipeId;
@@ -44,7 +44,7 @@ exports.removeFavorite = async (req: Request, res: Response) => {
 };
 
 // GET YOUR OWN FAVORITE RECIPE LIST
-exports.getFavorites = async (req: Request, res: Response) => {
+export const getFavorites = async (req: Request, res: Response) => {
   try {
     const userId = req.body.id;
 

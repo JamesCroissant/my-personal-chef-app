@@ -6,7 +6,7 @@ import User, { IUser } from '../models/User';
 const saltRounds = 10;
 
 // SIGNUP
-exports.registerUser = async (req: Request, res: Response) => {
+export const registerUser = async (req: Request, res: Response) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
 
@@ -24,7 +24,7 @@ exports.registerUser = async (req: Request, res: Response) => {
 };
 
 // LOGIN
-exports.loginUser =  async (req: Request, res: Response) => {
+export const loginUser =  async (req: Request, res: Response) => {
   try {
     const user = await User.findOne({ email: req.body.email });
     if (!user) return res.status(404).send("User not found");
