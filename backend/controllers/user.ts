@@ -16,7 +16,7 @@ export const addFavorite = async (req: Request, res: Response) => {
     user.favorites = [...user.favorites, recipeId];
     await user.save();
 
-    res.status(200).json(user.favorites);
+    res.status(200).json(user);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -37,7 +37,7 @@ export const removeFavorite = async (req: Request, res: Response) => {
     user.favorites = user.favorites.filter(id => id !== recipeId);
     await user.save();
 
-    res.status(200).json(user.favorites);
+    res.status(200).json(user);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -53,7 +53,7 @@ export const getFavorites = async (req: Request, res: Response) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    res.status(200).json(user.favorites);
+    res.status(200).json(user);
   } catch (error) {
     res.status(500).json(error);
   }
