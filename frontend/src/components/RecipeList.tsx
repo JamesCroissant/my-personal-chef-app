@@ -1,5 +1,6 @@
 import React from 'react'
 import { RecipeListProps } from '../types/recipeType';
+import Image from 'next/image';
 
 const RecipeList: React.FC<RecipeListProps> = ({recipes, handleRecipeClick}) => {
 
@@ -13,10 +14,12 @@ const RecipeList: React.FC<RecipeListProps> = ({recipes, handleRecipeClick}) => 
               className="max-w-xs space-y-3 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 transition-transform duration-300 transform hover:scale-110"
               onClick={() => handleRecipeClick(recipe.recipeId)}
             >
-              <img 
+              <Image 
                 src={recipe.image} 
                 alt={recipe.title}
-                className="rounded-xl"
+                width={500} 
+                height={300} 
+                layout="responsive"
               />
               <h3>{recipe.title}</h3>
             </div>
