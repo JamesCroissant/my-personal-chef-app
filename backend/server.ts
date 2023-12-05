@@ -4,6 +4,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import authRouter from './routes/auth';
 import userRouter from './routes/user';
+import { connectToDB } from './config/database';
 
 const app: Express = express();
 const port = process.env.PORT;
@@ -20,4 +21,7 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Hello, Hello!");
 });
 
-app.listen(port, () => console.log(`Server running on port ${port}`));
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+  connectToDB();
+});
